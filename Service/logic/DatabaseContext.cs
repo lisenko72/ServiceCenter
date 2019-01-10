@@ -27,7 +27,13 @@ namespace Service.Logic
             orders = new List<Order>
             {
                 new Order(1, "Замена экрана на утопленном iPhone", GetStatus(1), dateCreate: DateTime.Now),
-                new Order(1, "Замена батареи Samsung", GetStatus(2), dateCreate: DateTime.Now.AddDays(-2), dateEnd: DateTime.Now)
+                new Order(2, "Замена батареи Samsung", GetStatus(2), dateCreate: DateTime.Now.AddDays(-2), dateEnd: DateTime.Now)
+            };
+
+            services = new List<Service>
+            {
+                new Service(1, "Замена экрана"),
+                new Service(2, "Пайка сокета")
             };
         }
 

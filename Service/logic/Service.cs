@@ -10,5 +10,11 @@ namespace Service.Logic
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public Service(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
     }
 }
