@@ -9,9 +9,13 @@ namespace Service
     public partial class EditOrderForm : Form
     {
         private readonly int idOrder;
-        public EditOrderForm(int idOrder)
+        private OrdersForm parentForm;
+
+        public EditOrderForm(OrdersForm ordersForm, int idOrder)
         {
             this.idOrder = idOrder;
+            parentForm = ordersForm;
+
             InitializeComponent();
 
             FillStatuses();
@@ -24,10 +28,10 @@ namespace Service
             var order = Controller.GetOrder(idOrder);
             shortDescriptionTextBox.Text = order.ShortDescription;
             dateCreateDateTimePicker.Value = order.DateCreate;
-            if (order.DateEnd != DateTime.MinValue)
-                dateEndDateTimePicker.Value = order.DateEnd;
             statusComboBox.SelectedValue = order.Status.Id;
             descriptionRichTextBox.Text = order.Description;
+            if (order.DateEnd != DateTime.MinValue)
+                dateEndDateTimePicker.Value = order.DateEnd;
         }
         
         private void FillStatuses()
@@ -63,6 +67,28 @@ namespace Service
         {
             var addServiceJournalForm = new AddServiceJournalForm(idOrder, this);
             addServiceJournalForm.ShowDialog();
+        }
+
+        private void saveOrderButton_Click(object sender, EventArgs e)
+        {
+            if (Controller.UpdateOrder(
+                idOrder,
+                dateEndDateTimePicker.Value,
+                (int) statusComboBox.SelectedValue,
+                descriptionRichTextBox.Text))
+            {
+                parentForm.ShowOrders();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Ошибка сохранения");
+            }
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

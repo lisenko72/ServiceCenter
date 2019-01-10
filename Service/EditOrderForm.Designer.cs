@@ -39,8 +39,8 @@
             this.orderLabel = new System.Windows.Forms.Label();
             this.workItemsLabel = new System.Windows.Forms.Label();
             this.serviceJournalsDataGridView = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.saveOrderButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.addServiceButton = new System.Windows.Forms.Button();
             this.descriptionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.serviceJournalsDataGridView)).BeginInit();
@@ -146,23 +146,25 @@
             this.serviceJournalsDataGridView.Size = new System.Drawing.Size(254, 169);
             this.serviceJournalsDataGridView.TabIndex = 11;
             // 
-            // button1
+            // saveOrderButton
             // 
-            this.button1.Location = new System.Drawing.Point(385, 255);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.saveOrderButton.Location = new System.Drawing.Point(385, 255);
+            this.saveOrderButton.Name = "saveOrderButton";
+            this.saveOrderButton.Size = new System.Drawing.Size(75, 23);
+            this.saveOrderButton.TabIndex = 12;
+            this.saveOrderButton.Text = "Сохранить";
+            this.saveOrderButton.UseVisualStyleBackColor = true;
+            this.saveOrderButton.Click += new System.EventHandler(this.saveOrderButton_Click);
             // 
-            // button2
+            // cancelButton
             // 
-            this.button2.Location = new System.Drawing.Point(466, 255);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Отмена";
-            this.button2.UseVisualStyleBackColor = true;
+            this.cancelButton.Location = new System.Drawing.Point(466, 255);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 13;
+            this.cancelButton.Text = "Отмена";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // addServiceButton
             // 
@@ -190,8 +192,8 @@
             this.ClientSize = new System.Drawing.Size(554, 290);
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.addServiceButton);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.saveOrderButton);
             this.Controls.Add(this.serviceJournalsDataGridView);
             this.Controls.Add(this.workItemsLabel);
             this.Controls.Add(this.orderLabel);
@@ -204,6 +206,7 @@
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.dateCreateLabel);
             this.Name = "EditOrderForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Редактирование заказа";
             ((System.ComponentModel.ISupportInitialize)(this.serviceJournalsDataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -223,8 +226,8 @@
         private System.Windows.Forms.Label orderLabel;
         private System.Windows.Forms.Label workItemsLabel;
         private System.Windows.Forms.DataGridView serviceJournalsDataGridView;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button saveOrderButton;
+        private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button addServiceButton;
         private System.Windows.Forms.Label descriptionLabel;
     }

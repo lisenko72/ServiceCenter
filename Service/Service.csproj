@@ -75,18 +75,6 @@
     <Compile Include="OrdersForm.Designer.cs">
       <DependentUpon>OrdersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServicesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ServicesForm.Designer.cs">
-      <DependentUpon>ServicesForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WorkJournalForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WorkJournalForm.Designer.cs">
-      <DependentUpon>WorkJournalForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Logic\DatabaseContext.cs" />
     <Compile Include="Logic\ListOrders.cs" />
     <Compile Include="Logic\Order.cs" />
@@ -105,12 +93,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OrdersForm.resx">
       <DependentUpon>OrdersForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ServicesForm.resx">
-      <DependentUpon>ServicesForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WorkJournalForm.resx">
-      <DependentUpon>WorkJournalForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

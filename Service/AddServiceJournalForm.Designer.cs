@@ -41,7 +41,7 @@
             // serviceLabel
             // 
             this.serviceLabel.AutoSize = true;
-            this.serviceLabel.Location = new System.Drawing.Point(39, 84);
+            this.serviceLabel.Location = new System.Drawing.Point(14, 20);
             this.serviceLabel.Name = "serviceLabel";
             this.serviceLabel.Size = new System.Drawing.Size(43, 13);
             this.serviceLabel.TabIndex = 0;
@@ -50,7 +50,7 @@
             // timeLabel
             // 
             this.timeLabel.AutoSize = true;
-            this.timeLabel.Location = new System.Drawing.Point(39, 118);
+            this.timeLabel.Location = new System.Drawing.Point(14, 54);
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(107, 13);
             this.timeLabel.TabIndex = 1;
@@ -60,22 +60,37 @@
             // 
             this.serviceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.serviceComboBox.FormattingEnabled = true;
-            this.serviceComboBox.Location = new System.Drawing.Point(88, 81);
+            this.serviceComboBox.Location = new System.Drawing.Point(63, 17);
             this.serviceComboBox.Name = "serviceComboBox";
-            this.serviceComboBox.Size = new System.Drawing.Size(156, 21);
+            this.serviceComboBox.Size = new System.Drawing.Size(165, 21);
             this.serviceComboBox.TabIndex = 2;
             // 
             // timeNumericUpDown
             // 
-            this.timeNumericUpDown.Location = new System.Drawing.Point(153, 118);
+            this.timeNumericUpDown.Location = new System.Drawing.Point(128, 54);
+            this.timeNumericUpDown.Maximum = new decimal(new int[] {
+            50000,
+            0,
+            0,
+            0});
+            this.timeNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.timeNumericUpDown.Name = "timeNumericUpDown";
             this.timeNumericUpDown.Size = new System.Drawing.Size(64, 20);
             this.timeNumericUpDown.TabIndex = 3;
+            this.timeNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // minLabel
             // 
             this.minLabel.AutoSize = true;
-            this.minLabel.Location = new System.Drawing.Point(223, 120);
+            this.minLabel.Location = new System.Drawing.Point(198, 56);
             this.minLabel.Name = "minLabel";
             this.minLabel.Size = new System.Drawing.Size(30, 13);
             this.minLabel.TabIndex = 4;
@@ -83,7 +98,7 @@
             // 
             // addServiceJournal
             // 
-            this.addServiceJournal.Location = new System.Drawing.Point(88, 161);
+            this.addServiceJournal.Location = new System.Drawing.Point(72, 97);
             this.addServiceJournal.Name = "addServiceJournal";
             this.addServiceJournal.Size = new System.Drawing.Size(75, 23);
             this.addServiceJournal.TabIndex = 5;
@@ -93,7 +108,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(169, 161);
+            this.cancelButton.Location = new System.Drawing.Point(153, 97);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 6;
@@ -104,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 252);
+            this.ClientSize = new System.Drawing.Size(238, 130);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addServiceJournal);
             this.Controls.Add(this.minLabel);
@@ -113,7 +128,8 @@
             this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.serviceLabel);
             this.Name = "AddServiceJournalForm";
-            this.Text = "AddServiceJournalForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Добавление услуги";
             ((System.ComponentModel.ISupportInitialize)(this.timeNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

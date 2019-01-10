@@ -8,19 +8,28 @@ namespace Service.Logic
 {
     public static class Controller
     {
-        public static void AddOrder(
+        public static bool AddOrder(
             string shortDescription, 
             int idStatus, 
             DateTime dateCreate = default(DateTime), 
             DateTime dateEnd = default(DateTime), 
             string description = "")
         {
-            ListOrders.AddOrder(
+            return ListOrders.AddOrder(
                 shortDescription: shortDescription,
                 idStatus: idStatus,
                 description: description,
                 dateCreate: dateCreate,
                 dateEnd: dateEnd);
+        }
+
+        public static bool UpdateOrder(
+            int idOrder, 
+            DateTime dateEnd, 
+            int statusId, 
+            string description)
+        {
+            return ListOrders.UpdateOrder(idOrder, dateEnd, statusId, description);
         }
 
         public static List<Order> GetOrders()
@@ -43,9 +52,9 @@ namespace Service.Logic
             return ListServices.GetServices();
         }
 
-        public static void AddServiceJournal(int idService, int idOrder, int time)
+        public static bool AddServiceJournal(int idService, int idOrder, int time)
         {
-            ListServiceJournals.AddServiceJournal(idService, idOrder, time);
+            return ListServiceJournals.AddServiceJournal(idService, idOrder, time);
         }
 
         public static List<ServiceJournal> GetServiceJournals(int idOrder)

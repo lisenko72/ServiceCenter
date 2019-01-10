@@ -18,11 +18,15 @@ namespace Service
             InitializeComponent();
         }
 
-        private void open_FormOrders(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ordersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var orders = new OrdersForm();
-            //orders.Closed += (s, args) => this.Close();
-            orders.Show();
+            orders.ShowDialog();
         }
     }
 }

@@ -47,5 +47,31 @@ namespace Service.Logic
             var orders = dbContext.GetOrders();
             return orders.FirstOrDefault(order => order.Id == id);
         }
+
+        public static bool UpdateOrder(
+            int idOrder,
+            DateTime dateEnd,
+            int statusId,
+            string description)
+        {
+            var order = GetOrder(idOrder);
+            if (order == null)
+                return false;
+
+            if (order.Status.Id != statusId)
+            {
+                var dbContext = DatabaseContext.GetInstance();
+                var status = dbContext.GetStatuses().FirstOrDefault(s => s.Id == statusId);
+                if (status == null)
+                    return false;
+
+                order.Status = status;
+            }
+
+            order.DateEnd = dateEnd;
+            order.Description = description;
+
+            return true;
+        }
     }
 }
