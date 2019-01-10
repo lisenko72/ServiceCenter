@@ -17,27 +17,15 @@ namespace Service
             InitializeComponent();
         }
 
-        private void openWorkLog(object sender, EventArgs e)
-        {
-            WorkJournalForm workLog = new WorkJournalForm();
-            workLog.Show();
-        }
-
         private void FormOrders_Load(object sender, EventArgs e)
         {
             ShowOrders();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Controller.AddOrder("Норм заявочка", 1);
-        }
-
         private void ShowOrders()
         {
-
             var orders = Controller.GetOrders();
-            DataTable dataTable = new DataTable();
+            var dataTable = new DataTable();
             dataTable.Columns.Add("Краткое описание");
             dataTable.Columns.Add("Статус");
             foreach (var order in orders)
@@ -46,6 +34,18 @@ namespace Service
             }
 
             dataGridView1.DataSource = dataTable;
+        }
+
+        private void editOrderButton_Click(object sender, EventArgs e)
+        {
+            int selectedOrder = 1;
+            var editOrderForm = new EditOrderForm(selectedOrder);
+            editOrderForm.Show();
+        }
+
+        private void addOrderButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

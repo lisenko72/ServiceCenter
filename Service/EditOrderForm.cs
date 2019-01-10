@@ -7,22 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Service.Logic;
 
 namespace Service
 {
-    public partial class MainForm : Form
+    public partial class EditOrderForm : Form
     {
-        public MainForm()
+        public EditOrderForm(int idOrder)
         {
             InitializeComponent();
+
+            ShowOrder(idOrder);
         }
 
-        private void open_FormOrders(object sender, EventArgs e)
+        public void ShowOrder(int id)
         {
-            var orders = new OrdersForm();
-            //orders.Closed += (s, args) => this.Close();
-            orders.Show();
+
         }
     }
 }
