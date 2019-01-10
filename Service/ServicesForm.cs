@@ -11,9 +11,9 @@ using Service.Logic;
 
 namespace Service
 {
-    public partial class FormServices : Form
+    public partial class ServicesForm : Form
     {
-        public FormServices()
+        public ServicesForm()
         {
             InitializeComponent();
 

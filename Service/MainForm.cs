@@ -11,9 +11,9 @@ using Service.Logic;
 
 namespace Service
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             DatabaseContext.db();
@@ -22,7 +22,7 @@ namespace Service
         private void open_FormOrders(object sender, EventArgs e)
         {
             this.Hide();
-            var orders = new FormOrders();
+            var orders = new OrdersForm();
             //orders.Closed += (s, args) => this.Close();
             orders.Show();
         }

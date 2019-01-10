@@ -46,29 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormOrders.cs">
+    <Compile Include="OrdersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormOrders.Designer.cs">
-      <DependentUpon>FormOrders.cs</DependentUpon>
+    <Compile Include="OrdersForm.Designer.cs">
+      <DependentUpon>OrdersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormServices.cs">
+    <Compile Include="ServicesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormServices.Designer.cs">
-      <DependentUpon>FormServices.cs</DependentUpon>
+    <Compile Include="ServicesForm.Designer.cs">
+      <DependentUpon>ServicesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormWorkLog.cs">
+    <Compile Include="WorkJournalForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormWorkLog.Designer.cs">
-      <DependentUpon>FormWorkLog.cs</DependentUpon>
+    <Compile Include="WorkJournalForm.Designer.cs">
+      <DependentUpon>WorkJournalForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Logic\DataBase.cs" />
     <Compile Include="Logic\ListOrsers.cs" />
@@ -80,17 +80,17 @@
     <Compile Include="Logic\Status.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOrders.resx">
-      <DependentUpon>FormOrders.cs</DependentUpon>
+    <EmbeddedResource Include="OrdersForm.resx">
+      <DependentUpon>OrdersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormServices.resx">
-      <DependentUpon>FormServices.cs</DependentUpon>
+    <EmbeddedResource Include="ServicesForm.resx">
+      <DependentUpon>ServicesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormWorkLog.resx">
-      <DependentUpon>FormWorkLog.cs</DependentUpon>
+    <EmbeddedResource Include="WorkJournalForm.resx">
+      <DependentUpon>WorkJournalForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

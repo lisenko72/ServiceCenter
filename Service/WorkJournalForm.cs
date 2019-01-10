@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace Service
 {
-    public partial class FormWorkLog : Form
+    public partial class WorkJournalForm : Form
     {
-        public FormWorkLog()
+        public WorkJournalForm()
         {
             InitializeComponent();
         }
 
         private void addService(object sender, EventArgs e)
         {
-            FormServices services = new FormServices();
+            ServicesForm services = new ServicesForm();
             services.Show();
         }
     }

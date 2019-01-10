@@ -12,16 +12,16 @@ using Service.Logic;
 
 namespace Service
 {
-    public partial class FormOrders : Form
+    public partial class OrdersForm : Form
     {
-        public FormOrders()
+        public OrdersForm()
         {
             InitializeComponent();
         }
 
         private void openWorkLog(object sender, EventArgs e)
         {
-            FormWorkLog workLog = new FormWorkLog();
+            WorkJournalForm workLog = new WorkJournalForm();
             workLog.Show();
         }
 
