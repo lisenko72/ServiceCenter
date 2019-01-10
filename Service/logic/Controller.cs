@@ -13,11 +13,9 @@ namespace Service.Logic
             int idStatus, 
             DateTime dateCreate = default(DateTime), 
             DateTime dateEnd = default(DateTime), 
-            string description = "", 
-            int id = -1)
+            string description = "")
         {
             ListOrders.AddOrder(
-                id: id,
                 shortDescription: shortDescription,
                 idStatus: idStatus,
                 description: description,
@@ -30,9 +28,19 @@ namespace Service.Logic
             return ListOrders.GetOrders();
         }
 
+        public static Order GetOrder(int id)
+        {
+            return ListOrders.GetOrder(id);
+        }
+
         public static List<Status> GetStatuses()
         {
             return ListStatuses.GetStatuses();
+        }
+
+        public static void AddServiceJournal(int idService, int idOrder, int time)
+        {
+            ListServiceJournals.AddServiceJournal(idService, idOrder, time);
         }
     }
 }

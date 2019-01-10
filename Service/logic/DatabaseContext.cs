@@ -10,6 +10,8 @@ namespace Service.Logic
     {
         private List<Order> orders;
         private List<Status> statuses;
+        private List<ServiceJournal> serviceJournals;
+        private List<Service> services;
 
         static DatabaseContext database;
 
@@ -24,7 +26,8 @@ namespace Service.Logic
 
             orders = new List<Order>
             {
-                new Order(1, "Замена экрана на утопленном iPhone", GetStatus(1), dateCreate: DateTime.Now)
+                new Order(1, "Замена экрана на утопленном iPhone", GetStatus(1), dateCreate: DateTime.Now),
+                new Order(1, "Замена батареи Samsung", GetStatus(2), dateCreate: DateTime.Now.AddDays(-2), dateEnd: DateTime.Now)
             };
         }
 
@@ -42,7 +45,7 @@ namespace Service.Logic
         public List<Order> GetOrders()
         {
             return orders;
-    }
+        }
 
         public Status GetStatus(int id)
         {
@@ -52,6 +55,22 @@ namespace Service.Logic
         public List<Status> GetStatuses()
         {
             return statuses;
+        }
+
+        public bool AddServiceJournals(ServiceJournal serviceJournal)
+        {
+            serviceJournals.Add(serviceJournal);
+            return true;
+        }
+
+        public List<ServiceJournal> GetServiceJournals()
+        {
+            return serviceJournals;
+        }
+
+        public List<Service> GetServices()
+        {
+            return services;
         }
     }
 }

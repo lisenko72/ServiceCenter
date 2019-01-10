@@ -52,7 +52,11 @@
     <Compile Include="EditOrderForm.Designer.cs">
       <DependentUpon>EditOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logic\ListServiceJournals.cs" />
+    <Compile Include="Logic\ListServices.cs" />
     <Compile Include="Logic\ListStatuses.cs" />
+    <Compile Include="Logic\Service.cs" />
+    <Compile Include="Logic\ServiceJournal.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

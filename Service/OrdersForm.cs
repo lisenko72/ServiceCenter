@@ -40,7 +40,7 @@ namespace Service
         {
             int selectedOrder = 1;
             var editOrderForm = new EditOrderForm(selectedOrder);
-            editOrderForm.Show();
+            editOrderForm.ShowDialog();
         }
 
         private void addOrderButton_Click(object sender, EventArgs e)

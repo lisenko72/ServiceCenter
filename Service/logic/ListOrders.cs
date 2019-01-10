@@ -9,7 +9,6 @@ namespace Service.Logic
     public static class ListOrders
     {
         public static bool AddOrder(
-            int id,
             string shortDescription,
             int idStatus,
             DateTime dateCreate = default(DateTime),
@@ -22,8 +21,7 @@ namespace Service.Logic
             if (status == null)
                 return false;
 
-            if (id == -1)
-                id = 2; ///////////////
+            int id = new Random().Next(1, 200);
 
             var order = new Order(
                 id: id,
@@ -41,6 +39,13 @@ namespace Service.Logic
         {
             var dbContext = DatabaseContext.GetInstance();
             return dbContext.GetOrders();
+        }
+
+        public static Order GetOrder(int id)
+        {
+            var dbContext = DatabaseContext.GetInstance();
+            var orders = dbContext.GetOrders();
+            return orders.FirstOrDefault(order => order.Id == id);
         }
     }
 }

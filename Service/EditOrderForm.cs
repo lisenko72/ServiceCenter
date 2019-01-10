@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Service.Logic;
 
 namespace Service
 {
@@ -16,12 +10,31 @@ namespace Service
         {
             InitializeComponent();
 
+            LoadStatuses();
             ShowOrder(idOrder);
         }
 
-        public void ShowOrder(int id)
+        private void ShowOrder(int id)
         {
+            var order = Controller.GetOrder(id);
+            shortDescriptionTextBox.Text = order.ShortDescription;
+            dateCreateDateTimePicker.Value = order.DateCreate;
+            if (order.DateEnd != DateTime.MinValue)
+                dateEndDateTimePicker.Value = order.DateEnd;
+            statusComboBox.SelectedValue = order.Status.Id;
+            descriptionRichTextBox.Text = order.Description;
+        }
+        
+        public void LoadStatuses()
+        {
+            statusComboBox.DataSource = Controller.GetStatuses();
+            statusComboBox.DisplayMember = "Name";
+            statusComboBox.ValueMember = "Id";
+        }
 
+        private void dateEndDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            dateEndDateTimePicker.CustomFormat = "dd MMM yyyy HH:mm";
         }
     }
 }
