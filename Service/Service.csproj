@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logic\ListStatuses.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,13 +71,10 @@
     <Compile Include="WorkJournalForm.Designer.cs">
       <DependentUpon>WorkJournalForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Logic\DataBase.cs" />
-    <Compile Include="Logic\ListOrsers.cs" />
-    <Compile Include="Logic\ListServices.cs" />
+    <Compile Include="Logic\DatabaseContext.cs" />
+    <Compile Include="Logic\ListOrders.cs" />
     <Compile Include="Logic\Order.cs" />
-    <Compile Include="Logic\Register.cs" />
-    <Compile Include="Logic\Service.cs" />
-    <Compile Include="Logic\ServiceLineItem.cs" />
+    <Compile Include="Logic\Controller.cs" />
     <Compile Include="Logic\Status.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

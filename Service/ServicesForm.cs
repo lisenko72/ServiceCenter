@@ -16,10 +16,7 @@ namespace Service
         public ServicesForm()
         {
             InitializeComponent();
-
-            comboBox1.DataSource = Register.getServices();
-            comboBox1.DisplayMember = "Name";
-            comboBox1.ValueMember = "Id";
+            
         }
 
         private void addServiceItemLine(object sender, EventArgs e)

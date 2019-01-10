@@ -1,43 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service.Logic
 {
     public class Order
     {
-        int id;
-        Status status;
-        //List<ServiceLineItem> services;
-        DateTime dateClosed;
+        public int Id { get; set; }
+        public string ShortDescription { get; set; }
+        public string Description { get; set; }
+        public DateTime DateCreate { get; set; }
+        public DateTime DateEnd { get; set; }
+        public Status Status { get; set; }
 
-        public Order()
-        { }
-
-        public int Id
+        public Order(
+            int id, 
+            string shortDescription, 
+            Status status,  
+            string description = "",
+            DateTime dateCreate = default(DateTime),
+            DateTime dateEnd = default(DateTime))
         {
-            get
-            {
-                return id;
-            }
+            Id = id;
+            ShortDescription = shortDescription;
+            Description = description;
+            DateCreate = dateCreate == DateTime.MinValue ? DateTime.Now : dateCreate;
+            DateEnd = dateEnd;
+            Status = status;
         }
-
-        public string Status
-        {
-            get
-            {
-                return status.Name;
-            }
-        }
-
-        //public List<ServiceLineItem> Services
-        //{
-        //    get
-        //    {
-        //        return services;
-        //    }
-        //}
     }
 }

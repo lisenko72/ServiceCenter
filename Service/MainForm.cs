@@ -16,7 +16,6 @@ namespace Service
         public MainForm()
         {
             InitializeComponent();
-            DatabaseContext.db();
         }
 
         private void open_FormOrders(object sender, EventArgs e)

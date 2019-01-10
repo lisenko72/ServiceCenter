@@ -8,8 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Service.Logic;
-
 namespace Service
 {
     public partial class OrdersForm : Form
@@ -27,8 +25,27 @@ namespace Service
 
         private void FormOrders_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = DatabaseContext.Statuses;
-            dataGridView1.Columns["Id"].Visible = false;
+            ShowOrders();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Controller.AddOrder("Норм заявочка", 1);
+        }
+
+        private void ShowOrders()
+        {
+
+            var orders = Controller.GetOrders();
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("Краткое описание");
+            dataTable.Columns.Add("Статус");
+            foreach (var order in orders)
+            {
+                dataTable.Rows.Add(order.ShortDescription, order.Status.Name);
+            }
+
+            dataGridView1.DataSource = dataTable;
         }
     }
 }
