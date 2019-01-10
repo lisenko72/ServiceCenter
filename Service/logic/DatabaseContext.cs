@@ -26,14 +26,19 @@ namespace Service.Logic
 
             orders = new List<Order>
             {
-                new Order(1, "Замена экрана на утопленном iPhone", GetStatus(1), dateCreate: DateTime.Now),
-                new Order(2, "Замена батареи Samsung", GetStatus(2), dateCreate: DateTime.Now.AddDays(-2), dateEnd: DateTime.Now)
+                new Order(1, "Замена экрана на утопленном iPhone", statuses.FirstOrDefault(s => s.Id == 1), dateCreate: DateTime.Now),
+                new Order(2, "Замена батареи Samsung", statuses.FirstOrDefault(s => s.Id == 2), dateCreate: DateTime.Now.AddDays(-2), dateEnd: DateTime.Now)
             };
 
             services = new List<Service>
             {
                 new Service(1, "Замена экрана"),
                 new Service(2, "Пайка сокета")
+            };
+
+            serviceJournals = new List<ServiceJournal>
+            {
+                new ServiceJournal(1, services.FirstOrDefault(s => s.Id == 1), orders.FirstOrDefault(o => o.Id == 1), 17)
             };
         }
 
@@ -51,11 +56,6 @@ namespace Service.Logic
         public List<Order> GetOrders()
         {
             return orders;
-        }
-
-        public Status GetStatus(int id)
-        {
-            return statuses.FirstOrDefault(s => s.Id == id);
         }
 
         public List<Status> GetStatuses()

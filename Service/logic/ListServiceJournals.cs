@@ -27,5 +27,11 @@ namespace Service.Logic
             dbContext.AddServiceJournals(serviceJournal);
             return true;
         }
+
+        public static List<ServiceJournal> GetServiceJournals(int idOrder)
+        {
+            var dbContext = DatabaseContext.GetInstance();
+            return dbContext.GetServiceJournals().FindAll(s => s.Order.Id == idOrder);
+        }
     }
 }

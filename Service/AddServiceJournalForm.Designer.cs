@@ -30,12 +30,12 @@
         {
             this.serviceLabel = new System.Windows.Forms.Label();
             this.timeLabel = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.serviceComboBox = new System.Windows.Forms.ComboBox();
+            this.timeNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.minLabel = new System.Windows.Forms.Label();
             this.addServiceJournal = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // serviceLabel
@@ -56,21 +56,21 @@
             this.timeLabel.TabIndex = 1;
             this.timeLabel.Text = "Затраченное время";
             // 
-            // comboBox1
+            // serviceComboBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(88, 81);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(156, 21);
-            this.comboBox1.TabIndex = 2;
+            this.serviceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.serviceComboBox.FormattingEnabled = true;
+            this.serviceComboBox.Location = new System.Drawing.Point(88, 81);
+            this.serviceComboBox.Name = "serviceComboBox";
+            this.serviceComboBox.Size = new System.Drawing.Size(156, 21);
+            this.serviceComboBox.TabIndex = 2;
             // 
-            // numericUpDown1
+            // timeNumericUpDown
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(153, 118);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(64, 20);
-            this.numericUpDown1.TabIndex = 3;
+            this.timeNumericUpDown.Location = new System.Drawing.Point(153, 118);
+            this.timeNumericUpDown.Name = "timeNumericUpDown";
+            this.timeNumericUpDown.Size = new System.Drawing.Size(64, 20);
+            this.timeNumericUpDown.TabIndex = 3;
             // 
             // minLabel
             // 
@@ -89,6 +89,7 @@
             this.addServiceJournal.TabIndex = 5;
             this.addServiceJournal.Text = "Добавить";
             this.addServiceJournal.UseVisualStyleBackColor = true;
+            this.addServiceJournal.Click += new System.EventHandler(this.addServiceJournal_Click);
             // 
             // cancelButton
             // 
@@ -107,13 +108,13 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addServiceJournal);
             this.Controls.Add(this.minLabel);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.timeNumericUpDown);
+            this.Controls.Add(this.serviceComboBox);
             this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.serviceLabel);
             this.Name = "AddServiceJournalForm";
             this.Text = "AddServiceJournalForm";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,8 +124,8 @@
 
         private System.Windows.Forms.Label serviceLabel;
         private System.Windows.Forms.Label timeLabel;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.ComboBox serviceComboBox;
+        private System.Windows.Forms.NumericUpDown timeNumericUpDown;
         private System.Windows.Forms.Label minLabel;
         private System.Windows.Forms.Button addServiceJournal;
         private System.Windows.Forms.Button cancelButton;

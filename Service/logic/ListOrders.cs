@@ -17,7 +17,7 @@ namespace Service.Logic
         {
             var dbContext = DatabaseContext.GetInstance();
 
-            var status = dbContext.GetStatus(idStatus);
+            var status = dbContext.GetStatuses().FirstOrDefault(s => s.Id == idStatus);
             if (status == null)
                 return false;
 

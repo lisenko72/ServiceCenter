@@ -38,9 +38,19 @@ namespace Service.Logic
             return ListStatuses.GetStatuses();
         }
 
+        public static List<Service> GetServices()
+        {
+            return ListServices.GetServices();
+        }
+
         public static void AddServiceJournal(int idService, int idOrder, int time)
         {
             ListServiceJournals.AddServiceJournal(idService, idOrder, time);
+        }
+
+        public static List<ServiceJournal> GetServiceJournals(int idOrder)
+        {
+            return ListServiceJournals.GetServiceJournals(idOrder);
         }
     }
 }

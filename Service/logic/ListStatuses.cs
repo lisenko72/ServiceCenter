@@ -11,7 +11,7 @@ namespace Service.Logic
         public static Status GetStatus(int id)
         {
             var dbContext = DatabaseContext.GetInstance();
-            return dbContext.GetStatus(id);
+            return dbContext.GetStatuses().FirstOrDefault(s => s.Id == id);
         }
 
         public static List<Status> GetStatuses()

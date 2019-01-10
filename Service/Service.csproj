@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddServiceJournalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddServiceJournalForm.Designer.cs">
+      <DependentUpon>AddServiceJournalForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="Logic\Status.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddServiceJournalForm.resx">
+      <DependentUpon>AddServiceJournalForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditOrderForm.resx">
       <DependentUpon>EditOrderForm.cs</DependentUpon>
     </EmbeddedResource>

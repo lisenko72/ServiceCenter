@@ -38,12 +38,12 @@
             this.descriptionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.orderLabel = new System.Windows.Forms.Label();
             this.workItemsLabel = new System.Windows.Forms.Label();
-            this.workItemsDataGridView = new System.Windows.Forms.DataGridView();
+            this.serviceJournalsDataGridView = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.addServiceButton = new System.Windows.Forms.Button();
             this.descriptionLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.workItemsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serviceJournalsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // dateCreateLabel
@@ -134,16 +134,17 @@
             this.workItemsLabel.TabIndex = 10;
             this.workItemsLabel.Text = "Услуги";
             // 
-            // workItemsDataGridView
+            // serviceJournalsDataGridView
             // 
-            this.workItemsDataGridView.AllowUserToAddRows = false;
-            this.workItemsDataGridView.AllowUserToDeleteRows = false;
-            this.workItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.workItemsDataGridView.Location = new System.Drawing.Point(287, 80);
-            this.workItemsDataGridView.Name = "workItemsDataGridView";
-            this.workItemsDataGridView.ReadOnly = true;
-            this.workItemsDataGridView.Size = new System.Drawing.Size(254, 169);
-            this.workItemsDataGridView.TabIndex = 11;
+            this.serviceJournalsDataGridView.AllowUserToAddRows = false;
+            this.serviceJournalsDataGridView.AllowUserToDeleteRows = false;
+            this.serviceJournalsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.serviceJournalsDataGridView.Location = new System.Drawing.Point(287, 80);
+            this.serviceJournalsDataGridView.Name = "serviceJournalsDataGridView";
+            this.serviceJournalsDataGridView.ReadOnly = true;
+            this.serviceJournalsDataGridView.RowHeadersVisible = false;
+            this.serviceJournalsDataGridView.Size = new System.Drawing.Size(254, 169);
+            this.serviceJournalsDataGridView.TabIndex = 11;
             // 
             // button1
             // 
@@ -171,6 +172,7 @@
             this.addServiceButton.TabIndex = 14;
             this.addServiceButton.Text = "Добавить";
             this.addServiceButton.UseVisualStyleBackColor = true;
+            this.addServiceButton.Click += new System.EventHandler(this.addServiceButton_Click);
             // 
             // descriptionLabel
             // 
@@ -190,7 +192,7 @@
             this.Controls.Add(this.addServiceButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.workItemsDataGridView);
+            this.Controls.Add(this.serviceJournalsDataGridView);
             this.Controls.Add(this.workItemsLabel);
             this.Controls.Add(this.orderLabel);
             this.Controls.Add(this.descriptionRichTextBox);
@@ -203,7 +205,7 @@
             this.Controls.Add(this.dateCreateLabel);
             this.Name = "EditOrderForm";
             this.Text = "Редактирование заказа";
-            ((System.ComponentModel.ISupportInitialize)(this.workItemsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serviceJournalsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,7 +222,7 @@
         private System.Windows.Forms.RichTextBox descriptionRichTextBox;
         private System.Windows.Forms.Label orderLabel;
         private System.Windows.Forms.Label workItemsLabel;
-        private System.Windows.Forms.DataGridView workItemsDataGridView;
+        private System.Windows.Forms.DataGridView serviceJournalsDataGridView;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button addServiceButton;
