@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 using Service.Logic;
 
@@ -38,13 +39,16 @@ namespace Service
 
         public void ShowServiceJournals()
         {
-            var serviceJournals = Controller.GetServiceJournals(idOrder);
+            var serviceJournals = (from serviceJournal in Controller.GetServiceJournals(idOrder)
+                                    group serviceJournal by serviceJournal.Service.Name
+                                    into g
+                                    select new { g.Key, Sum = g.Sum(s => s.Time) }).ToList();
             var dataTable = new DataTable();
             dataTable.Columns.Add("Услуга");
             dataTable.Columns.Add("Время");
             foreach (var serviceJournal in serviceJournals)
             {
-                dataTable.Rows.Add(serviceJournal.Service.Name, serviceJournal.Time);
+                dataTable.Rows.Add(serviceJournal.Key, serviceJournal.Sum);
             }
 
             serviceJournalsDataGridView.DataSource = dataTable;
