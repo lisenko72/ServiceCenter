@@ -113,6 +113,11 @@ namespace Service
             return GetOrder(id).Description;
         }
 
+        public static string GetOrderTime(int id)
+        {
+            return GetOrder(id).GetTime().ToString();
+        }
+
         private static Order GetOrder(int id)
         {
             return ListOrders.GetOrder(id);

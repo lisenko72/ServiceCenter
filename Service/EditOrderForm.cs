@@ -26,6 +26,7 @@ namespace Service
             dateStartValueLabel.Text = Controller.GetOrderDateCreate(idOrder).ToLongDateString();
             statusComboBox.SelectedValue = Controller.GetOrderStatusId(idOrder);
             descriptionRichTextBox.Text = Controller.GetOrderDescription(idOrder);
+            timeOrderLabel.Text = Controller.GetOrderTime(idOrder) + " мин.";
             if (Controller.GetOrderDateEnd(idOrder) != DateTime.MinValue)
                 dateEndDateTimePicker.Value = Controller.GetOrderDateEnd(idOrder);
         }

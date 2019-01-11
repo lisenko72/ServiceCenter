@@ -43,6 +43,7 @@
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.shortDescriptionLabel = new System.Windows.Forms.Label();
             this.dateStartValueLabel = new System.Windows.Forms.Label();
+            this.timeOrderLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.serviceJournalsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -188,11 +189,21 @@
             this.dateStartValueLabel.TabIndex = 17;
             this.dateStartValueLabel.Text = "-";
             // 
+            // timeOrderLabel
+            // 
+            this.timeOrderLabel.AutoSize = true;
+            this.timeOrderLabel.Location = new System.Drawing.Point(287, 260);
+            this.timeOrderLabel.Name = "timeOrderLabel";
+            this.timeOrderLabel.Size = new System.Drawing.Size(10, 13);
+            this.timeOrderLabel.TabIndex = 18;
+            this.timeOrderLabel.Text = "-";
+            // 
             // EditOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 290);
+            this.Controls.Add(this.timeOrderLabel);
             this.Controls.Add(this.dateStartValueLabel);
             this.Controls.Add(this.shortDescriptionLabel);
             this.Controls.Add(this.descriptionLabel);
@@ -233,5 +244,6 @@
         private System.Windows.Forms.Label descriptionLabel;
         private System.Windows.Forms.Label shortDescriptionLabel;
         private System.Windows.Forms.Label dateStartValueLabel;
+        private System.Windows.Forms.Label timeOrderLabel;
     }
 }
