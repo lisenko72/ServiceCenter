@@ -8,26 +8,12 @@ namespace Service.Logic
 {
     public class Status
     {
-        int id;
-        string name;
+        public int Id { get; set; }
+        public string Name { get; set; }
         public Status(int id, string name)
         {
-            this.id = id;
-            this.name = name;
-        }
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-        }
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
+            Id = id;
+            Name = name;
         }
     }
 }

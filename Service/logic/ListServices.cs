@@ -13,5 +13,11 @@ namespace Service.Logic
             var dbContext = DatabaseContext.GetInstance();
             return dbContext.GetServices();
         }
+        public static Service GetService(int id)
+        {
+            var dbContext = DatabaseContext.GetInstance();
+            var services = dbContext.GetServices();
+            return services.FirstOrDefault(service => service.Id == id);
+        }
     }
 }

@@ -45,7 +45,8 @@ namespace Service.Logic
         {
             var dbContext = DatabaseContext.GetInstance();
             var orders = dbContext.GetOrders();
-            return orders.FirstOrDefault(order => order.Id == id);
+            var order2 = orders.FirstOrDefault(order => order.Id == id);
+            return order2;
         }
 
         public static bool UpdateOrder(

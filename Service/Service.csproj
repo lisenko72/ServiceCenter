@@ -58,7 +58,6 @@
     <Compile Include="EditOrderForm.Designer.cs">
       <DependentUpon>EditOrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Logic\ListServiceJournals.cs" />
     <Compile Include="Logic\ListServices.cs" />
     <Compile Include="Logic\ListStatuses.cs" />
     <Compile Include="Logic\Service.cs" />
@@ -78,7 +77,7 @@
     <Compile Include="Logic\DatabaseContext.cs" />
     <Compile Include="Logic\ListOrders.cs" />
     <Compile Include="Logic\Order.cs" />
-    <Compile Include="Logic\Controller.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="Logic\Status.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -30,8 +30,6 @@
         {
             this.dateCreateLabel = new System.Windows.Forms.Label();
             this.statusLabel = new System.Windows.Forms.Label();
-            this.shortDescriptionTextBox = new System.Windows.Forms.TextBox();
-            this.dateCreateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.statusComboBox = new System.Windows.Forms.ComboBox();
             this.dateEndLabel = new System.Windows.Forms.Label();
             this.dateEndDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -43,6 +41,8 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.addServiceButton = new System.Windows.Forms.Button();
             this.descriptionLabel = new System.Windows.Forms.Label();
+            this.shortDescriptionLabel = new System.Windows.Forms.Label();
+            this.dateStartValueLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.serviceJournalsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,22 +63,6 @@
             this.statusLabel.Size = new System.Drawing.Size(41, 13);
             this.statusLabel.TabIndex = 2;
             this.statusLabel.Text = "Статус";
-            // 
-            // shortDescriptionTextBox
-            // 
-            this.shortDescriptionTextBox.Location = new System.Drawing.Point(12, 28);
-            this.shortDescriptionTextBox.Name = "shortDescriptionTextBox";
-            this.shortDescriptionTextBox.Size = new System.Drawing.Size(529, 20);
-            this.shortDescriptionTextBox.TabIndex = 3;
-            // 
-            // dateCreateDateTimePicker
-            // 
-            this.dateCreateDateTimePicker.CustomFormat = "dd MMM yyyy HH:mm";
-            this.dateCreateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateCreateDateTimePicker.Location = new System.Drawing.Point(115, 54);
-            this.dateCreateDateTimePicker.Name = "dateCreateDateTimePicker";
-            this.dateCreateDateTimePicker.Size = new System.Drawing.Size(166, 20);
-            this.dateCreateDateTimePicker.TabIndex = 4;
             // 
             // statusComboBox
             // 
@@ -185,11 +169,32 @@
             this.descriptionLabel.TabIndex = 15;
             this.descriptionLabel.Text = "Описание";
             // 
+            // shortDescriptionLabel
+            // 
+            this.shortDescriptionLabel.AutoSize = true;
+            this.shortDescriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shortDescriptionLabel.Location = new System.Drawing.Point(11, 29);
+            this.shortDescriptionLabel.Name = "shortDescriptionLabel";
+            this.shortDescriptionLabel.Size = new System.Drawing.Size(13, 17);
+            this.shortDescriptionLabel.TabIndex = 16;
+            this.shortDescriptionLabel.Text = "-";
+            // 
+            // dateStartValueLabel
+            // 
+            this.dateStartValueLabel.AutoSize = true;
+            this.dateStartValueLabel.Location = new System.Drawing.Point(115, 57);
+            this.dateStartValueLabel.Name = "dateStartValueLabel";
+            this.dateStartValueLabel.Size = new System.Drawing.Size(10, 13);
+            this.dateStartValueLabel.TabIndex = 17;
+            this.dateStartValueLabel.Text = "-";
+            // 
             // EditOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 290);
+            this.Controls.Add(this.dateStartValueLabel);
+            this.Controls.Add(this.shortDescriptionLabel);
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.addServiceButton);
             this.Controls.Add(this.cancelButton);
@@ -201,8 +206,6 @@
             this.Controls.Add(this.dateEndDateTimePicker);
             this.Controls.Add(this.dateEndLabel);
             this.Controls.Add(this.statusComboBox);
-            this.Controls.Add(this.dateCreateDateTimePicker);
-            this.Controls.Add(this.shortDescriptionTextBox);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.dateCreateLabel);
             this.Name = "EditOrderForm";
@@ -217,8 +220,6 @@
         #endregion
         private System.Windows.Forms.Label dateCreateLabel;
         private System.Windows.Forms.Label statusLabel;
-        private System.Windows.Forms.TextBox shortDescriptionTextBox;
-        private System.Windows.Forms.DateTimePicker dateCreateDateTimePicker;
         private System.Windows.Forms.ComboBox statusComboBox;
         private System.Windows.Forms.Label dateEndLabel;
         private System.Windows.Forms.DateTimePicker dateEndDateTimePicker;
@@ -230,5 +231,7 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button addServiceButton;
         private System.Windows.Forms.Label descriptionLabel;
+        private System.Windows.Forms.Label shortDescriptionLabel;
+        private System.Windows.Forms.Label dateStartValueLabel;
     }
 }

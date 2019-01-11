@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Service.Logic;
 
 namespace Service
 {
@@ -28,13 +20,14 @@ namespace Service
         public void FillServices()
         {
             serviceComboBox.DataSource = Controller.GetServices();
-            serviceComboBox.DisplayMember = "Name";
+            serviceComboBox.DisplayMember = "Наименование";
             serviceComboBox.ValueMember = "Id";
         }
 
         private void addServiceJournal_Click(object sender, EventArgs e)
         {
-            Controller.AddServiceJournal((int)serviceComboBox.SelectedValue, idOrder, (int)timeNumericUpDown.Value);
+            //Controller.AddServiceJournal((int)serviceComboBox.SelectedValue, idOrder, (int)timeNumericUpDown.Value);
+            Controller.MakeServiceJournal(Convert.ToInt32(serviceComboBox.SelectedValue), idOrder, (int)timeNumericUpDown.Value);
             parentForm.ShowServiceJournals();
             this.Close();
         }

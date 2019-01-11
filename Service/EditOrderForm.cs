@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
-using Service.Logic;
 
 namespace Service
 {
@@ -25,37 +22,24 @@ namespace Service
 
         private void ShowOrder()
         {
-            var order = Controller.GetOrder(idOrder);
-            shortDescriptionTextBox.Text = order.ShortDescription;
-            dateCreateDateTimePicker.Value = order.DateCreate;
-            statusComboBox.SelectedValue = order.Status.Id;
-            descriptionRichTextBox.Text = order.Description;
-            if (order.DateEnd != DateTime.MinValue)
-                dateEndDateTimePicker.Value = order.DateEnd;
+            shortDescriptionLabel.Text = Controller.GetOrderShortDescription(idOrder);
+            dateStartValueLabel.Text = Controller.GetOrderDateCreate(idOrder).ToLongDateString();
+            statusComboBox.SelectedValue = Controller.GetOrderStatusId(idOrder);
+            descriptionRichTextBox.Text = Controller.GetOrderDescription(idOrder);
+            if (Controller.GetOrderDateEnd(idOrder) != DateTime.MinValue)
+                dateEndDateTimePicker.Value = Controller.GetOrderDateEnd(idOrder);
         }
-        
+
         private void FillStatuses()
         {
             statusComboBox.DataSource = Controller.GetStatuses();
-            statusComboBox.DisplayMember = "Name";
+            statusComboBox.DisplayMember = "Наименование";
             statusComboBox.ValueMember = "Id";
         }
 
         public void ShowServiceJournals()
         {
-            var serviceJournals = (from serviceJournal in Controller.GetServiceJournals(idOrder)
-                                    group serviceJournal by serviceJournal.Service.Name
-                                    into g
-                                    select new { g.Key, Sum = g.Sum(s => s.Time) }).ToList();
-            var dataTable = new DataTable();
-            dataTable.Columns.Add("Услуга");
-            dataTable.Columns.Add("Время");
-            foreach (var serviceJournal in serviceJournals)
-            {
-                dataTable.Rows.Add(serviceJournal.Key, serviceJournal.Sum);
-            }
-
-            serviceJournalsDataGridView.DataSource = dataTable;
+            serviceJournalsDataGridView.DataSource = Controller.GetServiceJournals(idOrder);
         }
 
         private void dateEndDateTimePicker_ValueChanged(object sender, EventArgs e)
@@ -74,7 +58,7 @@ namespace Service
             if (Controller.UpdateOrder(
                 idOrder,
                 dateEndDateTimePicker.Value,
-                (int) statusComboBox.SelectedValue,
+                Convert.ToInt32(statusComboBox.SelectedValue),
                 descriptionRichTextBox.Text))
             {
                 parentForm.ShowOrders();

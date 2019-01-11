@@ -1,13 +1,6 @@
-﻿using Service.Logic;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+
 namespace Service
 {
     public partial class OrdersForm : Form
@@ -24,19 +17,7 @@ namespace Service
 
         public void ShowOrders()
         {
-            var orders = Controller.GetOrders();
-            var dataTable = new DataTable();
-            dataTable.Columns.Add("Id");
-            dataTable.Columns.Add("Дата создания");
-            dataTable.Columns.Add("Краткое описание");
-            dataTable.Columns.Add("Статус");
-            dataTable.Columns.Add("Дата завершения");
-            foreach (var order in orders)
-            {
-                dataTable.Rows.Add(order.Id, order.DateCreate, order.ShortDescription, order.Status.Name, order.DateEnd);
-            }
-
-            dataGridView1.DataSource = dataTable;
+            dataGridView1.DataSource = Controller.GetOrders();
             dataGridView1.Columns["Id"].Visible = false;
         }
 
@@ -49,11 +30,6 @@ namespace Service
                 var editOrderForm = new EditOrderForm(this, orderId);
                 editOrderForm.ShowDialog();
             }
-        }
-
-        private void addOrderButton_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
