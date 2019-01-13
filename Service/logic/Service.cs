@@ -8,13 +8,23 @@ namespace Service.Logic
 {
     public class Service
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        private int id;
+        private string name;
 
         public Service(int id, string name)
         {
-            Id = id;
-            Name = name;
+            this.id = id;
+            this.name = name;
+        }
+
+        public int Id
+        {
+            get { return id; }
+        }
+
+        public string Name
+        {
+            get { return name; }
         }
     }
 }

@@ -23,6 +23,9 @@ namespace Service
 
         private void editOrderButton_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.Rows.Count < 1)
+                return;
+            
             int selectedIndex = dataGridView1.SelectedRows[0].Index;
             if (selectedIndex >= 0)
             {

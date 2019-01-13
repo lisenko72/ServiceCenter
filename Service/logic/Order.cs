@@ -5,13 +5,13 @@ namespace Service.Logic
 {
     public class Order
     {
-        public int Id { get; set; }
-        public string ShortDescription { get; set; }
-        public string Description { get; set; }
-        public DateTime DateCreate { get; set; }
-        public DateTime DateEnd { get; set; }
-        public Status Status { get; set; }
-        public List<ServiceJournal> ServiceJournals { get; set; }
+        private int id;
+        private string shortDescription;
+        private string description;
+        private DateTime dateCreate;
+        private DateTime dateEnd;
+        private Status status;
+        private List<CompletedService> serviceJournals;
 
         public Order(
             int id,
@@ -21,46 +21,83 @@ namespace Service.Logic
             DateTime dateCreate = default(DateTime),
             DateTime dateEnd = default(DateTime))
         {
-            Id = id;
-            ShortDescription = shortDescription;
-            Description = description;
-            DateCreate = dateCreate == DateTime.MinValue ? DateTime.Now : dateCreate;
-            DateEnd = dateEnd;
-            Status = status;
-            ServiceJournals = new List<ServiceJournal>();
-            //ServiceJournals = new List<ServiceJournal>{
-            //    new ServiceJournal(new Service(2, "ццывы"), 30),
-            //    new ServiceJournal(new Service(4, "111"), 30)
-            //};
+            this.id = id;
+            this.shortDescription = shortDescription;
+            this.description = description;
+            this.dateCreate = dateCreate == DateTime.MinValue ? DateTime.Now : dateCreate;
+            this.dateEnd = dateEnd;
+            this.status = status;
+            serviceJournals = new List<CompletedService>();
         }
 
-        public bool MakeServiceJournal(Service service, int time)
+        public bool MakeCompletedService(Service service, int time)
         {
-            ServiceJournal sj = new ServiceJournal(service, time);
-            DatabaseContext.AddServiceJournal(Id, sj);
+            CompletedService completedService = new CompletedService(service, time);
+            serviceJournals.Add(completedService);
             return true;
         }
 
-        public bool AddServiceJournal(ServiceJournal sj)
+        public bool UpdateOrder(string description, Status status, DateTime dateEnd)
         {
-            ServiceJournals.Add(sj);
+            if (status == null)
+                return false;
+
+            this.status = status;
+            this.description = description;
+            this.dateEnd = dateEnd;
+
             return true;
         }
 
-        public List<ServiceJournal> GetServiceJournals()
+        public List<CompletedService> GetCompletedServices()
         {
-            return ServiceJournals;
+            return serviceJournals;
         }
 
         public double GetTime()
         {
             double time = 0;
-            foreach (var serviceJournal in ServiceJournals)
+            foreach (var serviceJournal in serviceJournals)
             {
                 time = time + serviceJournal.Time;
             }
 
             return time;
+        }
+
+        public int Id
+        {
+            get { return id; }
+        }
+
+        public Status Status
+        {
+            get { return status; }
+            set { status = value; }
+        }
+
+        public DateTime DateEnd
+        {
+            get { return dateEnd; }
+            set { dateEnd = value; }
+        }
+
+        public DateTime DateCreate
+        {
+            get { return dateCreate; }
+            set { dateCreate = value; }
+        }
+
+        public string ShortDescription
+        {
+            get { return shortDescription; }
+            set { shortDescription = value; }
+        }
+
+        public string Description
+        {
+            get { return description; }
+            set { description = value; }
         }
     }
 }

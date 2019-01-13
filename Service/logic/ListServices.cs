@@ -1,22 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service.Logic
 {
-    public static class ListServices
+    public class ListServices
     {
-        public static List<Service> GetServices()
+        private List<Service> services;
+
+        private static ListServices instance;
+
+        public ListServices()
         {
-            var dbContext = DatabaseContext.GetInstance();
-            return dbContext.GetServices();
+            services = new List<Service>
+            {
+                new Service(1, "Замена экрана")
+            };
         }
-        public static Service GetService(int id)
+
+        public static ListServices GetInstance()
         {
-            var dbContext = DatabaseContext.GetInstance();
-            var services = dbContext.GetServices();
+            return instance ?? (instance = new ListServices());
+        }
+
+        public List<Service> GetServices()
+        {
+            return services;
+        }
+        public Service GetService(int id)
+        {
             return services.FirstOrDefault(service => service.Id == id);
         }
     }

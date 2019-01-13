@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Service.Logic;
 
@@ -16,6 +9,11 @@ namespace Service
         public MainForm()
         {
             InitializeComponent();
+
+            ListStatuses.GetInstance();
+            ListServices.GetInstance();
+            ListOrders.GetInstance();
+            ListOrdersAndServices.MakeCompletedService(1, 1, 13);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

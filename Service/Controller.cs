@@ -14,7 +14,7 @@ namespace Service
             table.Columns.Add("Наименование");
             table.Columns.Add("Id");
 
-            var services = ListServices.GetServices();
+            var services = ListServices.GetInstance().GetServices();
             foreach (var service in services)
             {
                 table.Rows.Add(service.Name, service.Id);
@@ -25,8 +25,7 @@ namespace Service
 
         public static bool MakeServiceJournal(int idService, int idOrder, int time)
         {
-            GetOrder(idOrder).MakeServiceJournal(GetService(idService), time);
-            return true;
+            return ListOrdersAndServices.MakeCompletedService(idOrder, idService, time);
         }
 
         public static bool UpdateOrder(
@@ -35,12 +34,12 @@ namespace Service
             int statusId,
             string description)
         {
-            return ListOrders.UpdateOrder(idOrder, dateEnd, statusId, description);
+            return ListOrders.GetInstance().UpdateOrder(idOrder, dateEnd, statusId, description);
         }
 
         public static DataTable GetOrders()
         {
-            var orders = ListOrders.GetOrders();
+            var orders = ListOrders.GetInstance().GetOrders();
             var dataTable = new DataTable();
             dataTable.Columns.Add("Id");
             dataTable.Columns.Add("Дата создания");
@@ -61,7 +60,7 @@ namespace Service
             table.Columns.Add("Наименование");
             table.Columns.Add("Id");
 
-            var statuses = ListStatuses.GetStatuses();
+            var statuses = ListStatuses.GetInstance().GetStatuses();
             foreach (var status in statuses)
             {
                 table.Rows.Add(status.Name, status.Id);
@@ -72,8 +71,8 @@ namespace Service
 
         public static DataTable GetServiceJournals(int idOrder)
         {
-            var serviceJournals = (from serviceJournal in GetOrder(idOrder).GetServiceJournals()
-                                    group serviceJournal by serviceJournal.Service.Name
+            var serviceJournals = (from completedService in GetOrder(idOrder).GetCompletedServices()
+                                    group completedService by completedService.Service.Name
                                     into g
                                     select new { g.Key, Sum = g.Sum(s => s.Time) }).ToList();
             var dataTable = new DataTable();
@@ -120,12 +119,7 @@ namespace Service
 
         private static Order GetOrder(int id)
         {
-            return ListOrders.GetOrder(id);
-        }
-
-        private static Logic.Service GetService(int id)
-        {
-            return ListServices.GetService(id);
+            return ListOrders.GetInstance().GetOrder(id);
         }
     }
 }

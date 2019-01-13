@@ -1,78 +1,79 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service.Logic
 {
-    public static class ListOrders
+    public class ListOrders
     {
-        public static bool AddOrder(
+        private List<Order> orders;
+
+        private static ListOrders instance;
+
+        public ListOrders()
+        {
+            orders = new List<Order>
+            {
+                new Order(1, "Замена экрана на утопленном iPhone", GetStatus(1), dateCreate: DateTime.Now)
+            };
+
+        }
+
+        public static ListOrders GetInstance()
+        {
+            return instance ?? (instance = new ListOrders());
+        }
+
+        public bool AddOrder(
             string shortDescription,
             int idStatus,
             DateTime dateCreate = default(DateTime),
             DateTime dateEnd = default(DateTime),
             string description = "")
         {
-            var dbContext = DatabaseContext.GetInstance();
-
-            var status = dbContext.GetStatuses().FirstOrDefault(s => s.Id == idStatus);
+            if (orders == null)
+                orders = new List<Order>();
+            
+            var status = GetStatus(idStatus);
             if (status == null)
                 return false;
 
             int id = new Random().Next(1, 200);
 
-            var order = new Order(
-                id: id,
-                shortDescription: shortDescription,
-                status: status,
-                description: description,
-                dateCreate: dateCreate,
-                dateEnd: dateEnd
-            );
+            var order = new Order(id, shortDescription, status, description, dateCreate, dateEnd);
 
-            return dbContext.AddOrder(order);
+            orders.Add(order);
+            return true;
         }
 
-        public static List<Order> GetOrders()
+        public List<Order> GetOrders()
         {
-            var dbContext = DatabaseContext.GetInstance();
-            return dbContext.GetOrders();
+            return orders;
         }
 
-        public static Order GetOrder(int id)
+        public Order GetOrder(int id)
         {
-            var dbContext = DatabaseContext.GetInstance();
-            var orders = dbContext.GetOrders();
-            var order2 = orders.FirstOrDefault(order => order.Id == id);
-            return order2;
+            return orders.FirstOrDefault(order => order.Id == id);
         }
 
-        public static bool UpdateOrder(
+        public bool UpdateOrder(
             int idOrder,
             DateTime dateEnd,
-            int statusId,
+            int idStatus,
             string description)
         {
             var order = GetOrder(idOrder);
             if (order == null)
                 return false;
 
-            if (order.Status.Id != statusId)
-            {
-                var dbContext = DatabaseContext.GetInstance();
-                var status = dbContext.GetStatuses().FirstOrDefault(s => s.Id == statusId);
-                if (status == null)
-                    return false;
+            var status = GetStatus(idStatus);
 
-                order.Status = status;
-            }
+            return order.UpdateOrder(description, status, dateEnd);
+        }
 
-            order.DateEnd = dateEnd;
-            order.Description = description;
-
-            return true;
+        public Status GetStatus(int idStatus)
+        {
+            return ListStatuses.GetInstance().GetStatus(idStatus);
         }
     }
 }

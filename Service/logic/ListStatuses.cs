@@ -6,18 +6,34 @@ using System.Threading.Tasks;
 
 namespace Service.Logic
 {
-    public static class ListStatuses
+    public class ListStatuses
     {
-        public static Status GetStatus(int id)
+        private List<Status> statuses;
+
+        private static ListStatuses instance;
+
+        public ListStatuses()
         {
-            var dbContext = DatabaseContext.GetInstance();
-            return dbContext.GetStatuses().FirstOrDefault(s => s.Id == id);
+            statuses = new List<Status>
+            {
+                new Status(1, "Выполнен"),
+                new Status(2, "В работе")
+            };
         }
 
-        public static List<Status> GetStatuses()
+        public static ListStatuses GetInstance()
         {
-            var dbContext = DatabaseContext.GetInstance();
-            return dbContext.GetStatuses();
+            return instance ?? (instance = new ListStatuses());
+        }
+
+        public Status GetStatus(int id)
+        {
+            return statuses.FirstOrDefault(s => s.Id == id);
+        }
+
+        public List<Status> GetStatuses()
+        {
+            return statuses;
         }
     }
 }
